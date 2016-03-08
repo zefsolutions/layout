@@ -397,10 +397,7 @@
 		* @public
 		*/
 		previous: function () {
-			var prevIndex = this.index - 1;
-			if (this.wrap && prevIndex < 0) {
-				prevIndex = this.getPanels().length - 1;
-			}
+			var prevIndex = this.clamp(this.index - 1);
 			this.setIndex(prevIndex);
 		},
 
@@ -411,10 +408,7 @@
 		* @public
 		*/
 		next: function () {
-			var nextIndex = this.index+1;
-			if (this.wrap && nextIndex >= this.getPanels().length) {
-				nextIndex = 0;
-			}
+			var nextIndex = this.clamp(this.index + 1);
 			this.setIndex(nextIndex);
 		},
 
